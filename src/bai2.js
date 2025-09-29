@@ -10,7 +10,10 @@ function Bai2() {
     setCurrent((prev) => (prev + 1) % lights.length);
   };
 
-
+  useEffect(() => {
+    const timer = setInterval(changeLight, 2000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <div style={{ fontFamily: 'Arial', padding: '20px', textAlign: 'center' }}>
@@ -75,3 +78,4 @@ function Bai2() {
 // React 18: Dùng createRoot
 const root = ReactDOM.createRoot(document.getElementById('bai2'));
 root.render(<Bai2 />);
+
